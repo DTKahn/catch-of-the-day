@@ -7,7 +7,6 @@ class StorePicker extends Component {
         <h2>Enter A Store</h2>
         <input type="text" required placeholder="store" />
         <button type="submit">Visit Store</button>
-      
       </form>
     )
   }
