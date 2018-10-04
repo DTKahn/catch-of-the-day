@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import { getFunName } from '../helpers';
 
 class StorePicker extends Component {
   render() {
     return (
       <form className="store-selector">
         <h2>Enter A Store</h2>
-        <input type="text" required placeholder="store" />
+        <input 
+          type="text" 
+          required 
+          placeholder="store name" 
+          defaultValue={getFunName()}
+        />
         <button type="submit">Visit Store</button>
       </form>
     )
