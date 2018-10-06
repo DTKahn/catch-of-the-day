@@ -23,7 +23,6 @@ class Fish extends Component {
         </button>
       </li>
     );
-
   }
 }
 

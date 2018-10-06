@@ -65,7 +65,13 @@ class App extends Component {
           </ul>
         </div>
         
-        <Order />
+        <Order 
+          fishes={this.state.fishes}
+          order={this.state.order}
+          
+          // Can be used to spread an object and pass the entire object, but best not to use unless you know you need ALL of the object, otherwise overkill
+          // { ...this.state }
+        />
         
         <Inventory addFish={this.addFish} loadSampleFishes={this.loadSampleFishes}/>
       </div>
