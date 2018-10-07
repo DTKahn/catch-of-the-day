@@ -74,6 +74,18 @@ class App extends Component {
     });
   };
 
+  deleteFish = key => {
+    
+    // take a copy of state
+    const fishes = { ...this.state.fishes };
+
+    // update the copy of state
+    fishes[key] = null;
+
+    // update state
+    this.setState({ fishes });
+  }
+
   addToOrder = key => {
     
     // Take a copy of state
@@ -83,9 +95,19 @@ class App extends Component {
     order[key] = order[key] + 1 || 1;
 
     // Call setState to update the state object
-    this.setState({
-      order: order
-    })
+    this.setState({ order })
+  };
+
+  removeFromOrder = key => {
+
+    // Take a copy of state
+    const order = { ...this.state.order };
+
+    // Remove from order
+    delete order[key];
+
+    // Call setState to update the state object
+    this.setState({ order })
   };
 
   render () {
@@ -109,6 +131,7 @@ class App extends Component {
         <Order 
           fishes={this.state.fishes}
           order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
           
           // Can be used to spread an object and pass the entire object, but best not to use unless you know you need ALL of the object, otherwise overkill
           // { ...this.state }
@@ -117,6 +140,7 @@ class App extends Component {
         <Inventory 
           addFish={this.addFish} 
           updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
         />
